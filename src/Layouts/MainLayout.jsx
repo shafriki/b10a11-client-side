@@ -10,7 +10,7 @@ const MainLayout = () => {
             <Navbar></Navbar>
 
             {/* outlet part with accurate height */}
-            <div className="min-h-[calc(100vh-370px)] ">
+            <div className="min-h-[calc(100vh-427px)] ">
                 <Outlet></Outlet>
             </div>
 
