@@ -20,7 +20,7 @@ const Footer = () => {
 {/* bg-gradient-to-r from-[#1A1A1A] via-[#33334D] to-[#732C59] text-white */}
                 {/* company logo section */}
                 <aside>
-                    <img src={logo} className='w-20' />
+                    <img src={logo} className='w-16 md:w-20' />
                     <p>
                     প্রতিদৌড়
                     <br />
