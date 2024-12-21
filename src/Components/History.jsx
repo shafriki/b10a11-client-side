@@ -2,7 +2,7 @@ import React from 'react';
 
 const History = () => {
     return (
-        <div className='relative max-w-screen-xl mx-3 md:mx-auto flex flex-col py-16 md:py-24 my-10 bg-cover bg-center' style={{ backgroundImage: "url('https://i.ibb.co.com/98mbN9g/pexels-runffwpu-2654902.jpg')" }}>
+        <div className='relative max-w-screen-xl mx-3 md:mx-auto flex flex-col py-16 md:py-24 my-32 bg-cover bg-center' style={{ backgroundImage: "url('https://i.ibb.co.com/98mbN9g/pexels-runffwpu-2654902.jpg')" }}>
 
             <div className="absolute inset-0 bg-black opacity-70"></div>
 

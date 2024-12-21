@@ -11,11 +11,10 @@ const Navbar = () => {
     const links = (
         <>
         <NavLink to='/'>Home</NavLink>
-        <NavLink>Home</NavLink>
-        <NavLink>Home</NavLink>
-        <NavLink>Home</NavLink>
-        <NavLink>Home</NavLink>
-        <NavLink>Home</NavLink>
+        <NavLink to='/marathons'>Marathons</NavLink>
+        <NavLink to='/add-marathons'>Add Marathons</NavLink>
+        <NavLink to='/my-marathons'>My Marathons</NavLink>
+        <NavLink to='/my-apply'>My Apply</NavLink>
         </>
     )
     return (

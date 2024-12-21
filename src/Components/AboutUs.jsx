@@ -13,7 +13,7 @@ const AboutUs = () => {
             Let’s Talk About ProtiDour Journey
           </h2>
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-1 md:gap-4">
             <img src="https://i.ibb.co.com/hg1XtZ0/a-1.webp" className="w-full h-32 md:h-48 object-cover rounded-lg"/>
             
             <img src="https://i.ibb.co.com/556qsrW/a-2.webp" className="w-full h-32 md:h-48 object-cover rounded-lg" />
