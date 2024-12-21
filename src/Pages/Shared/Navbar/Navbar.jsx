@@ -10,11 +10,15 @@ const Navbar = () => {
 
     const links = (
         <>
-        <NavLink to='/'>Home</NavLink>
-        <NavLink to='/marathons'>Marathons</NavLink>
-        <NavLink to='/add-marathons'>Add Marathons</NavLink>
-        <NavLink to='/my-marathons'>My Marathons</NavLink>
-        <NavLink to='/my-apply'>My Apply</NavLink>
+        <NavLink to='/' className={({ isActive }) => isActive ? 'font-bold text-[#228B22]' : 'text-[#ECF0F1]' }>Home</NavLink>
+
+        <NavLink to='/marathons' className={({ isActive }) => isActive ? 'font-bold text-[#228B22]' : 'text-[#ECF0F1]' }>Marathons</NavLink>
+
+        <NavLink to='/add-marathons' className={({ isActive }) => isActive ? 'font-bold text-[#228B22]' : 'text-[#ECF0F1]' }>Add Marathons</NavLink>
+
+        <NavLink to='/my-marathons' className={({ isActive }) => isActive ? 'font-bold text-[#228B22]' : 'text-[#ECF0F1]' }>My Marathons</NavLink>
+        
+        <NavLink to='/my-apply' className={({ isActive }) => isActive ? 'font-bold text-[#228B22]' : 'text-[#ECF0F1]' }>My Apply</NavLink>
         </>
     )
     return (
