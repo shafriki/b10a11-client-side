@@ -10,25 +10,23 @@ import lockAmation from '../../assets/lock.json';
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import axios from "axios";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   
-  // Get the current location to store the previous page URL
   const location = useLocation();
   const navigate = useNavigate();
   
-  // Store the previous location (if any) to redirect the user after login
   const from = location.state?.from?.pathname || "/"; 
 
-  // Aos animation initialization
   useEffect(() => {
     AOS.init();
   }, []);
 
-  // Corrected reference to the signIn function
   const { signIn, googlePopup, loading } = useContext(AuthContext);
 
   const togglePasswordVisibility = () => {
@@ -37,6 +35,14 @@ const Login = () => {
 
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
+    if (!email || !password) {
+      toast.error("Please fill in all fields.", {
+        position: "top-center",
+        autoClose: 5000,
+      });
+      return;
+    }
+
     try {
       // Login user with email and password
       await signIn(email, password);
@@ -48,10 +54,19 @@ const Login = () => {
       );
       console.log(data);
 
+      toast.success("Login successful!", {
+        position: "top-center",
+        autoClose: 3000,
+      });
+
       // Navigate to the previous page or home page after login
-      navigate(from, { replace: true });
+      setTimeout(() => navigate(from, { replace: true }), 1000);
     } catch (error) {
       console.error("Login failed:", error.message);
+      toast.error("Login failed. Please check your email or password.", {
+        position: "top-center",
+        autoClose: 5000,
+      });
     }
   };
 
@@ -67,10 +82,19 @@ const Login = () => {
       );
       console.log(data);
 
+      toast.success("Logged in with Google!", {
+        position: "top-center",
+        autoClose: 3000,
+      });
+
       // Navigate to the previous page or home page after Google login
-      navigate(from, { replace: true });
+      setTimeout(() => navigate(from, { replace: true }), 1500);
     } catch (error) {
       console.error("Google login failed:", error.message);
+      toast.error("Google login failed. Please try again.", {
+        position: "top-center",
+        autoClose: 5000,
+      });
     }
   };
 
@@ -79,6 +103,8 @@ const Login = () => {
       style={{ backgroundImage: "url('https://i.ibb.co.com/NjVGTZ0/18773518-6031991.jpg')" }}>
 
       <div className="absolute inset-0 bg-black bg-opacity-70 z-0"></div>
+
+      <ToastContainer />
 
       <div className="flex flex-col md:flex-row justify-between items-center max-w-screen-lg mx-auto px-4 md:px-0 z-10 relative min-h-screen" data-aos="fade-down" data-aos-duration="1000">
         
