@@ -3,7 +3,8 @@ import { Link, NavLink } from 'react-router-dom';
 import { IoMdLogIn } from "react-icons/io";
 import { FaUserEdit } from "react-icons/fa";
 import logo from '../../../assets/protidour.png';
-import { AuthContext } from "../../../Provider/AuthProvider"; 
+import { AuthContext } from "../../../Provider/AuthProvider";
+import { FadeLoader } from 'react-spinners'; // Importing FadeLoader
 
 const Navbar = () => {
     const { user, logOut, loading } = useContext(AuthContext); 
@@ -32,9 +33,9 @@ const Navbar = () => {
 
     if (loading) {
         return (
-            <div className="text-center my-4 md:my-6">
-                <span className="loading loading-lg loading-spinner text-success"></span>
-            </div>
+            <div className="absolute top-0 left-1/2 transform -translate-x-1/2 text-center my-4 md:my-6 z-50">
+            <FadeLoader color="#228B22" loading={loading} size={50} />
+        </div>
         );
     }
 
