@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { IoMdLogIn } from "react-icons/io";
-import logo from '../../../assets/protidour.png'
-
 import { FaUserEdit } from "react-icons/fa";
-
+import logo from '../../../assets/protidour.png';
+import { AuthContext } from "../../../Provider/AuthProvider"; 
 
 const Navbar = () => {
+    const { user, logOut, loading } = useContext(AuthContext); 
 
     const links = (
         <>
@@ -20,7 +20,24 @@ const Navbar = () => {
         
         <NavLink to='/my-apply' className={({ isActive }) => isActive ? 'font-bold text-[#228B22]' : 'text-[#ECF0F1]' }>My Apply</NavLink>
         </>
-    )
+    );
+
+    const handleSignOut = () => {
+        logOut().then(result => {
+            console.log(result);
+        }).catch(err => {
+            console.error(err);
+        });
+    };
+
+    if (loading) {
+        return (
+            <div className="text-center my-4 md:my-6">
+                <span className="loading loading-lg loading-spinner text-success"></span>
+            </div>
+        );
+    }
+
     return (
         <div className='bg-gradient-to-r from-[#1B1B1D] via-[#272730] to-[#6E2B4E] text-white sticky top-0 z-50 backdrop-blur opacity-85 md:py-1'>
             <div className="navbar max-w-screen-xl mx-auto">
@@ -55,10 +72,28 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end flex gap-1 md:gap-2">
-                <Link to='/register' className="btn bg-[#228B22] border-none px-2 md:px-4 hover:bg-[#175c17] text-xs md:text-sm text-white"><FaUserEdit />
-                Register</Link>
-                <Link to='/login' className="btn bg-[#228B22] border-none px-2 md:px-6 hover:bg-[#175c17] text-xs md:text-sm text-white"><IoMdLogIn />
-                Login</Link>
+                {user ? (
+                    <>
+                    <div className="dropdown z-10 dropdown-hover dropdown-bottom dropdown-end">
+                        <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                            <div className="w-10 rounded-full" title={user.displayName}>
+                                <img alt={user.displayName} src={user.photoURL} />
+                            </div>
+                        </div>
+                        <ul tabIndex={0} className="dropdown-content space-y-2 z-[1] menu shadow bg-base-100 rounded-box w-56">
+                            <li><button className="btn bg-cyan-500 text-white">{user.displayName}</button></li>
+                            <li><button onClick={handleSignOut} className="btn bg-cyan-500 text-white"><IoMdLogIn /> Log Out</button></li>
+                        </ul>
+                    </div>
+                    </>
+                ) : (
+                    <>
+                    <Link to='/register' className="btn bg-[#228B22] border-none px-2 md:px-4 hover:bg-[#175c17] text-xs md:text-sm text-white"><FaUserEdit />
+                    Register</Link>
+                    <Link to='/login' className="btn bg-[#228B22] border-none px-2 md:px-6 hover:bg-[#175c17] text-xs md:text-sm text-white"><IoMdLogIn />
+                    Login</Link>
+                    </>
+                )}
             </div>
             </div>
         </div>
