@@ -82,8 +82,8 @@ const Navbar = () => {
                             </div>
                         </div>
                         <ul tabIndex={0} className="dropdown-content space-y-2 z-[1] menu shadow bg-base-100 rounded-box w-56">
-                            <li><button className="btn bg-cyan-500 text-white">{user.displayName}</button></li>
-                            <li><button onClick={handleSignOut} className="btn bg-cyan-500 text-white"><IoMdLogIn /> Log Out</button></li>
+                            <li><button className="btn bg-[#228B22] text-white">{user.displayName}</button></li>
+                            <li><button onClick={handleSignOut} className="btn bg-[#228B22] text-white"><IoMdLogIn /> Log Out</button></li>
                         </ul>
                     </div>
                     </>
