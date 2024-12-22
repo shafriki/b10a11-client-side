@@ -77,7 +77,7 @@ const Navbar = () => {
                     <>
                     <div className="dropdown z-10 dropdown-hover dropdown-bottom dropdown-end">
                         <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                            <div className="w-10 rounded-full" title={user.displayName}>
+                            <div className="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-[#228B22] object-cover cursor-pointer" title={user.displayName}>
                                 <img alt={user.displayName} src={user.photoURL} />
                             </div>
                         </div>
