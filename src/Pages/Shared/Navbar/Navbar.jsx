@@ -4,7 +4,7 @@ import { IoMdLogIn } from "react-icons/io";
 import { FaUserEdit } from "react-icons/fa";
 import logo from '../../../assets/protidour.png';
 import { AuthContext } from "../../../Provider/AuthProvider";
-import { FadeLoader } from 'react-spinners'; // Importing FadeLoader
+import { FadeLoader } from 'react-spinners'; 
 
 const Navbar = () => {
     const { user, logOut, loading } = useContext(AuthContext); 
