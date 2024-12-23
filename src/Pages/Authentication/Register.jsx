@@ -24,6 +24,10 @@ const Register = () => {
     const googleProvider = new GoogleAuthProvider();
 
     useEffect(() => {
+            document.title = "Register | প্রতিদৌড়";
+          }, []);
+
+    useEffect(() => {
         AOS.init();
         if (user) {
             navigate("/");

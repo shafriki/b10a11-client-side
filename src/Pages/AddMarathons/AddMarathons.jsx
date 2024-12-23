@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2"; 
@@ -11,6 +11,10 @@ AOS.init();
 
 const AddMarathons = () => {
   const navigate = useNavigate();
+
+  useEffect(() => {
+          document.title = "Add Marathon | প্রতিদৌড়";
+        }, []);
 
   const [registrationStartDate, setRegistrationStartDate] = useState(null);
   const [registrationEndDate, setRegistrationEndDate] = useState(null);

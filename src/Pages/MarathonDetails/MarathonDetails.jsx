@@ -14,6 +14,10 @@ const MarathonDetails = () => {
     const { user } = useContext(AuthContext);  
     const navigate = useNavigate(); 
 
+    useEffect(() => {
+            document.title = "Details | প্রতিদৌড়";
+          }, []);
+
     const [marathonDetails, setMarathonDetails] = useState(null);
     const [isRegistrationOpen, setIsRegistrationOpen] = useState(false);
     const [loading, setLoading] = useState(true);  

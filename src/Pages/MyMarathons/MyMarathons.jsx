@@ -11,6 +11,10 @@ const MyMarathons = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+          document.title = "My Marathons | প্রতিদৌড়";
+        }, []);
+
+  useEffect(() => {
     if (user) {
       getMarathons();
     }

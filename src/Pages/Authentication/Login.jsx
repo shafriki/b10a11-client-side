@@ -27,6 +27,10 @@ const Login = () => {
     AOS.init();
   }, []);
 
+  useEffect(() => {
+          document.title = "Login | প্রতিদৌড়";
+        }, []);
+
   const { signIn, googlePopup, loading } = useContext(AuthContext);
 
   const togglePasswordVisibility = () => {

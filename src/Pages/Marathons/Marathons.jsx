@@ -15,6 +15,10 @@ const Marathons = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
+            document.title = "Marathons | প্রতিদৌড়";
+          }, []);
+
+    useEffect(() => {
         AOS.init({ duration: 1000 }); // Initialize AOS with animation duration
         const getData = async () => {
             try {

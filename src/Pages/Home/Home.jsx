@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import BannerCompo from './BannerCompo';
 import Latest from '../../Components/Latest';
 import FindUs from '../../Components/FindUs';
@@ -8,6 +8,10 @@ import AboutUs from '../../Components/AboutUs';
 import HomeMarathons from '../../Components/HomeMarathons';
 
 const Home = () => {
+    useEffect(() => {
+        document.title = "Home | প্রতিদৌড়";
+      }, []);
+
     return (
         <div>
             <BannerCompo></BannerCompo>
