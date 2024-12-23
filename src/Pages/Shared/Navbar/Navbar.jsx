@@ -65,7 +65,7 @@ const Navbar = () => {
                 </ul>
                 </div>
                 <img src={logo} alt="CrowdCube Logo" className="w-6 md:w-10" />
-                <a className="text-sm px-1 md:text-xl btn btn-ghost text-[#228B22]">প্রতিদৌড়</a>
+                <Link to='/home' className="text-sm px-1 md:text-xl btn btn-ghost text-[#228B22]">প্রতিদৌড়</Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1 gap-10">
