@@ -1,15 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify'; 
 import { IoLocation } from "react-icons/io5";
 import { FaCalendarCheck } from "react-icons/fa";
 import { FaCalendarTimes } from "react-icons/fa";
 import { FadeLoader } from 'react-spinners'; 
-
-
-
-
 
 const Marathons = () => {
     const [marathons, setMarathons] = useState([]);
@@ -30,10 +26,6 @@ const Marathons = () => {
         };
         getData();
     }, []);
-
-    const handleDetailsClick = (id) => {
-        navigate(`/marathons/${id}`); 
-    };
 
     if (loading) {
         return <div className="absolute top-0 left-1/2 transform -translate-x-1/2 text-center my-4 md:my-6 z-50">
@@ -62,7 +54,7 @@ const Marathons = () => {
                             </p>
                         </div>
 
-                            <button onClick={() => handleDetailsClick(marathon._id)} className="btn opacity-90 w-full mt-4 px-4 py-2 text-white text-sm font-medium rounded bg-gradient-to-r from-[#1B1B1D] via-[#272730] to-[#6E2B4E] hover:from-[#272730] hover:via-[#6E2B4E] hover:to-[#1B1B1D] focus:outline-none focus:ring-2 focus:ring-[#6E2B4E] focus:ring-opacity-75">See Details</button>
+                            <Link to={`/marathon/${marathon._id}`} className="btn opacity-90 w-full mt-4 px-4 py-2 text-white text-sm font-medium rounded bg-gradient-to-r from-[#1B1B1D] via-[#272730] to-[#6E2B4E] hover:from-[#272730] hover:via-[#6E2B4E] hover:to-[#1B1B1D] focus:outline-none focus:ring-2 focus:ring-[#6E2B4E] focus:ring-opacity-75">See Details</Link>
 
                         </div>
                     </div>
