@@ -1,7 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom'; // for redirection
-import { toast } from 'react-toastify'; // for error handling
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify'; 
+import { IoLocation } from "react-icons/io5";
+import { FaCalendarCheck } from "react-icons/fa";
+import { FaCalendarTimes } from "react-icons/fa";
+import { FadeLoader } from 'react-spinners'; 
+
+
+
+
 
 const Marathons = () => {
     const [marathons, setMarathons] = useState([]);
@@ -24,36 +32,42 @@ const Marathons = () => {
     }, []);
 
     const handleDetailsClick = (id) => {
-        navigate(`/marathons/${id}`); // Redirect to Marathon Details page
+        navigate(`/marathons/${id}`); 
     };
 
     if (loading) {
-        return <div>Loading...</div>; // Show loading state
+        return <div className="absolute top-0 left-1/2 transform -translate-x-1/2 text-center my-4 md:my-6 z-50">
+        <FadeLoader color="#228B22" loading={loading} size={50} />
+    </div> 
     }
 
     return (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-4">
-            {marathons.map((marathon) => (
-                <div key={marathon._id} className="max-w-sm rounded overflow-hidden shadow-lg">
-                    <img
-                        src={marathon.marathonImage} // Corrected field name
-                        alt={marathon.marathonTitle} // Corrected field name
-                        className="w-full h-48 object-cover"
-                    />
-                    <div className="p-4">
-                        <h2 className="font-bold text-lg">{marathon.marathonTitle}</h2> {/* Corrected field name */}
-                        <p>{marathon.location}</p>
-                        <p>{`Start Date: ${new Date(marathon.registrationStartDate).toLocaleDateString()}`}</p> {/* Corrected field name */}
-                        <p>{`End Date: ${new Date(marathon.registrationEndDate).toLocaleDateString()}`}</p> {/* Corrected field name */}
-                        <button 
-                            onClick={() => handleDetailsClick(marathon._id)} 
-                            className="mt-2 text-blue-500 hover:text-blue-700"
-                        >
-                            See Details
-                        </button>
+        <div className="px-5 md:px-0 max-w-screen-xl mx-auto my-8 md:my-10">
+            <h1 className="text-xl md:text-3xl font-bold text-center mb-4 md:mb-8">Explore All Marathons</h1>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10">
+                {marathons.map((marathon) => (
+                    <div key={marathon._id} className="w-full border-y-8 bg-gray-50 rounded-xl   border-[#228B22] shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden" >
+                        <img src={marathon.marathonImage} alt={marathon.marathonTitle} className="w-full h-48 object-cover"/>
+
+                        <div className="py-6 px-3">
+                            <h2 className="font-bold text-sm md:text-base mb-2 text-gray-800">{marathon.marathonTitle}</h2>
+
+                            <p className="text-gray-600 mb-1 text-xs md:text-sm"><IoLocation className='inline-block  md:text-lg mr-1 text-[#228B22]'/>
+                            {marathon.location}</p>
+
+                        <div className='flex mt-2 justify-between'>
+                            <p className="text-xs md:text-sm text-gray-500 mb-1"><FaCalendarCheck className='inline-block md:text-lg mr-1 text-[#22438b]'/> {`Start Date: ${new Date(marathon.registrationStartDate).toLocaleDateString()}`}</p>
+
+                            <p className="text-xs md:text-sm text-gray-500"><FaCalendarTimes className='inline-block md:text-lg mr-1 text-[#8b2222]'/>{`End Date: ${new Date(marathon.registrationEndDate).toLocaleDateString()}`}
+                            </p>
+                        </div>
+
+                            <button onClick={() => handleDetailsClick(marathon._id)} className="btn opacity-90 w-full mt-4 px-4 py-2 text-white text-sm font-medium rounded bg-gradient-to-r from-[#1B1B1D] via-[#272730] to-[#6E2B4E] hover:from-[#272730] hover:via-[#6E2B4E] hover:to-[#1B1B1D] focus:outline-none focus:ring-2 focus:ring-[#6E2B4E] focus:ring-opacity-75">See Details</button>
+
+                        </div>
                     </div>
-                </div>
-            ))}
+                ))}
+            </div>
         </div>
     );
 };
