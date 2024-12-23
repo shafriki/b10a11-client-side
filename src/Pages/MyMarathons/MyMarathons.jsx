@@ -21,7 +21,7 @@ const MyMarathons = () => {
   }, [user]);
 
   const getMarathons = async () => {
-  if (!user?.email) return; // Make sure user email is available
+    
   try {
     const { data } = await axios(`${import.meta.env.VITE_API_URL}/marathons/${user?.email}`, { withCredentials: true });
     setMarathons(data);
@@ -34,29 +34,30 @@ const MyMarathons = () => {
 };
 
 
-  const handleDeleteMarathon = async id => {
-    try {
-      const result = await Swal.fire({
-        title: 'Are you sure?',
-        text: "You won't be able to revert this!",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
-      });
+const handleDeleteMarathon = async (id) => {
+  try {
+    const result = await Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    });
 
-      if (result.isConfirmed) {
-        const { data } = await axios.delete(`${import.meta.env.VITE_API_URL}/marathon/${id}`, { withCredentials: true });
-        toast.success('Marathon deleted successfully!');
-        // Refresh UI
-        getMarathons();
-      }
-    } catch (err) {
-      console.log("Error deleting marathon:", err.message);
-      toast.error("Error deleting marathon. Please try again later.");
+    if (result.isConfirmed) {
+      const { data } = await axios.delete(`${import.meta.env.VITE_API_URL}/marathon/${id}`, { withCredentials: true });
+      toast.success('Marathon deleted successfully!');
+      // Refresh UI
+      getMarathons();
     }
-  };
+  } catch (err) {
+    console.log("Error deleting marathon:", err.message);
+    toast.error("Error deleting marathon. Please try again later.");
+  }
+};
+
 
   return (
     <div className="container mx-auto p-6">

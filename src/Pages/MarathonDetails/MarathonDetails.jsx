@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { useLoaderData, useNavigate } from "react-router-dom";
+import { Link, useLoaderData, useNavigate } from "react-router-dom";
 import axios from 'axios';
 import { AuthContext } from '../../Provider/AuthProvider';
 import { FadeLoader } from 'react-spinners'; 
@@ -129,9 +129,9 @@ const MarathonDetails = () => {
                                 </div>
                             </div>
 
-                            <button onClick={handleRegisterClick} disabled={!isRegistrationOpen} className={`btn w-full mt-4 py-2 px-4 ${isRegistrationOpen ? 'bg-[#228B22]  border-none hover:bg-[#1d771d] text-white' : 'bg-gray-500 text-gray-300'} rounded-lg`}>
+                            <Link to=''  disabled={!isRegistrationOpen} className={`btn w-full mt-4 py-2 px-4 ${isRegistrationOpen ? 'bg-[#228B22]  border-none hover:bg-[#1d771d] text-white' : 'bg-gray-500 text-gray-300'} rounded-lg`}>
                                 {isRegistrationOpen ? 'Register Now' : 'Registration Closed'}
-                            </button>
+                            </Link>
                         </div>
                     </div>
                 ) : (

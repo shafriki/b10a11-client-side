@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2"; 
@@ -6,10 +6,12 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "aos/dist/aos.css";
 import AOS from "aos";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 AOS.init();
 
 const AddMarathons = () => {
+  const { user } = useContext(AuthContext);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -28,6 +30,7 @@ const AddMarathons = () => {
     const location = form.location.value;
     const description = form.description.value;
     const marathonImage = form.image.value;
+    const userEmail = form.email.value; 
 
     const createdAt = new Date();
     const totalRegistrationCount = 0;
@@ -43,6 +46,7 @@ const AddMarathons = () => {
       marathonImage,
       createdAt,
       totalRegistrationCount,
+      userEmail
     };
 
     console.table(marathonData);
@@ -168,6 +172,22 @@ const AddMarathons = () => {
                 required
               />
             </div>
+
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text text-gray-800 dark:text-white">
+                  Email
+                </span>
+              </label>
+              <input
+                type="email"
+                name="email"
+                placeholder="user email"
+                className="input dark:bg-gray-900 text-gray-400 input-bordered w-full"
+                required readOnly value={user?.email || ''} 
+              />
+            </div>
+
             <div className="form-control">
               <label className="label">
                 <span className="label-text text-gray-800 dark:text-white">
