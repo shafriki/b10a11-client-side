@@ -9,12 +9,13 @@ import MyMarathons from "../Pages/MyMarathons/MyMarathons";
 import MyApply from "../Pages/MyApply/MyApply";
 import PrivateRoute from "./PrivateRoute";
 import MarathonDetails from "../Pages/MarathonDetails/MarathonDetails";
+import ErrorPage from "../Pages/Error/ErrorPage";
 
 const router = createBrowserRouter([
     {
         path: '/',
         element: <MainLayout></MainLayout>,
-        errorElement: <h1>error page</h1>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 index: true, 
