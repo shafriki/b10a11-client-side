@@ -41,7 +41,7 @@ const AddMarathons = () => {
 
     try {
       const { data } = await axios.post(
-        `${import.meta.env.VITE_API_URL}/marathon`,
+        `${import.meta.env.VITE_API_URL}/marathons`,
         marathonData
       );
       console.log(data);
