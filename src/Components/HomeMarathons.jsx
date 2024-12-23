@@ -5,12 +5,15 @@ import { FadeLoader } from 'react-spinners';
 import { IoLocation } from "react-icons/io5";
 import { FaCalendarCheck } from "react-icons/fa";
 import { FaCalendarTimes } from "react-icons/fa";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const HomeMarathons = () => {
   const [marathons, setMarathons] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    AOS.init({ duration: 1000 }); // Initialize AOS with desired options
     getData();
   }, []);
 
@@ -38,7 +41,7 @@ const HomeMarathons = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {marathons.map((marathon) => (
-          <div key={marathon._id} className="w-full border-y-8 bg-gray-50 rounded-xl border-[#6E2B4E] shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
+          <div key={marathon._id} data-aos="fade-up" className="w-full border-y-8 bg-gray-50 rounded-xl border-[#6E2B4E] shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
             <img src={marathon.marathonImage} alt={marathon.marathonTitle} className="w-full h-48 object-cover" />
 
             <div className="py-6 px-3">

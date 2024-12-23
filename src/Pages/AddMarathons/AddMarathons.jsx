@@ -4,6 +4,10 @@ import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2"; 
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import "aos/dist/aos.css";
+import AOS from "aos";
+
+AOS.init();
 
 const AddMarathons = () => {
   const navigate = useNavigate();
@@ -71,10 +75,10 @@ const AddMarathons = () => {
 
       {/* Black Overlay with Opacity */}
       <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-center gap-16 relative z-10 px-4">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-center gap-16 relative z-10 px-4" data-aos="fade-up">
 
         {/* Left Side Text Content */}
-        <div className="flex-1 text-white p-5">
+        <div className="flex-1 text-white p-5" data-aos="fade-up">
           <h1 className="text-2xl text-[#37d337] md:text-4xl font-bold mb-6">Add Your Marathon</h1>
           <p className="text-sm text-justify md:text-lg">
             Create a new marathon event for participants to join, choose the
@@ -84,7 +88,7 @@ const AddMarathons = () => {
         </div>
 
         {/* Right Side Form */}
-        <div className="flex-1 bg-gray-400 border-y-8 bg-opacity-30 backdrop-blur-sm rounded-xl border-[#228B22] shadow-lg p-6 md:max-w-lg w-full">
+        <div className="flex-1 bg-gray-400 border-y-8 bg-opacity-30 backdrop-blur-sm rounded-xl border-[#228B22] shadow-lg p-6 md:max-w-lg w-full" data-aos="fade-up">
           <form onSubmit={handleAddMarathon} className="space-y-5">
             <div className="form-control">
               <label className="label">
