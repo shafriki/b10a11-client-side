@@ -1,11 +1,10 @@
-// Import necessary libraries
 import React, { useEffect, useState } from 'react';
 import marathonsData from '../../public/upcoming.json';
 import { FaLocationDot } from "react-icons/fa6";
 import { BsFillCalendar2DateFill } from "react-icons/bs";
 import { Typewriter } from 'react-simple-typewriter';
-
-
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
 
 const UpcomingMarathons = () => {
     const [randomMarathons, setRandomMarathons] = useState([]);
@@ -17,6 +16,11 @@ const UpcomingMarathons = () => {
         };
 
         setRandomMarathons(shuffleAndSelect(marathonsData.marathonEvents));
+
+        AOS.init({
+            duration: 1000, 
+            once: true, 
+        });
     }, []);
 
     return (
@@ -28,7 +32,11 @@ const UpcomingMarathons = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {randomMarathons.map((marathon) => (
-                    <div key={marathon.id} className="w-full border-y-8 bg-gray-50 rounded-xl border-[#228B22] shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
+                    <div 
+                        key={marathon.id} 
+                        className="w-full border-y-8 bg-gray-50 rounded-xl border-[#228B22] shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden"
+                        data-aos="fade-up" 
+                    >
                         <img src={marathon.image} alt={marathon.title} 
                         className="w-full h-48 object-cover" />
 
@@ -49,8 +57,6 @@ const UpcomingMarathons = () => {
                                 <strong><FaLocationDot className='inline-block text-[#6E2B4E] mr-1'/>
                                 </strong> {marathon.location}
                             </p>
-
-                            
                         </div>
                     </div>
                 ))}
