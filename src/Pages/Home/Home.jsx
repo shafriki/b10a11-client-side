@@ -6,6 +6,7 @@ import History from '../../Components/History';
 import Community from '../../Components/Community';
 import AboutUs from '../../Components/AboutUs';
 import HomeMarathons from '../../Components/HomeMarathons';
+import UpcomingMarathons from '../../Components/UpcomingMarathons';
 
 const Home = () => {
     useEffect(() => {
@@ -19,6 +20,7 @@ const Home = () => {
             <AboutUs></AboutUs>
             <HomeMarathons></HomeMarathons>
             <History></History>
+            <UpcomingMarathons></UpcomingMarathons>
             <Community></Community>
             <FindUs></FindUs>
         </div>
