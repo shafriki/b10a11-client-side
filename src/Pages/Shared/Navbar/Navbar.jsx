@@ -20,31 +20,27 @@ const Navbar = () => {
         setTheme(e.target.checked ? 'dark' : 'light');
     };
 
+    const handleSignOut = () => {
+        logOut().then(result => {
+            console.log('Logged out:', result);
+        }).catch(err => {
+            console.error('Logout error:', err);
+        });
+    };
+
     const links = (
         <>
             <NavLink to='/' className={({ isActive }) => isActive ? 'font-bold text-[#228B22]' : 'text-[#ECF0F1]'}>Home</NavLink>
-
             <NavLink to='/marathons' className={({ isActive }) => isActive ? 'font-bold text-[#228B22]' : 'text-[#ECF0F1]'}>Marathons</NavLink>
-
             {user && (
                 <>
                     <NavLink to='/add-marathons' className={({ isActive }) => isActive ? 'font-bold text-[#228B22]' : 'text-[#ECF0F1]'}>Add Marathons</NavLink>
-
                     <NavLink to='/my-marathons' className={({ isActive }) => isActive ? 'font-bold text-[#228B22]' : 'text-[#ECF0F1]'}>My Marathons</NavLink>
-
                     <NavLink to='/my-apply' className={({ isActive }) => isActive ? 'font-bold text-[#228B22]' : 'text-[#ECF0F1]'}>My Apply</NavLink>
                 </>
             )}
         </>
     );
-
-    const handleSignOut = () => {
-        logOut().then(result => {
-            console.log(result);
-        }).catch(err => {
-            console.error(err);
-        });
-    };
 
     if (loading) {
         return (
@@ -87,10 +83,9 @@ const Navbar = () => {
                         {links}
                     </ul>
                 </div>
-                <div className="navbar-end flex gap-1 md:gap-2">
+                <div className="navbar-end flex gap-1 md:gap-2 items-center">
                     <label className="cursor-pointer grid place-items-center">
                         <input type="checkbox" onChange={handleToggle} checked={theme === "dark"} className="toggle theme-controller bg-base-content row-start-1 col-start-1 col-span-2" />
-
                         <svg
                             className="col-start-1 row-start-1 stroke-base-100 fill-base-100"
                             xmlns="http://www.w3.org/2000/svg"
@@ -105,7 +100,6 @@ const Navbar = () => {
                             <circle cx="12" cy="12" r="5" />
                             <path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4" />
                         </svg>
-
                         <svg
                             className="col-start-2 row-start-1 stroke-base-100 fill-base-100"
                             xmlns="http://www.w3.org/2000/svg"
@@ -134,6 +128,7 @@ const Navbar = () => {
                                     <li><button onClick={handleSignOut} className="btn bg-[#228B22] text-white"><IoMdLogIn /> Log Out</button></li>
                                 </ul>
                             </div>
+                            <button onClick={handleSignOut} className="btn bg-[#228B22] border-none px-4 hover:bg-[#175c17] text-sm text-white hidden md:block">Log Out</button>
                         </>
                     ) : (
                         <>
