@@ -69,38 +69,48 @@ const Register = () => {
         const email = form.email.value;
         const photoURL = form.photo.value;
         const password = form.password.value;
-
+    
         const uppercaseRegex = /[A-Z]/;
         const lowercaseRegex = /[a-z]/;
         const lengthRequirement = password.length >= 6;
-
+    
         if (!uppercaseRegex.test(password)) {
             toast.error("Password must contain at least one uppercase letter.", {
                 position: "top-center",
             });
             return;
         }
-
+    
         if (!lowercaseRegex.test(password)) {
             toast.error("Password must contain at least one lowercase letter.", {
                 position: "top-center",
             });
             return;
         }
-
+    
         if (!lengthRequirement) {
             toast.error("Password must be at least 6 characters long.", {
                 position: "top-center",
             });
             return;
         }
-
+    
         try {
             const result = await createUser(email, password, name, photoURL);
+            
             if (result) {
+                const { data } = await axios.post(
+                    `${import.meta.env.VITE_API_URL}/jwt`,
+                    { email: email },
+                    { withCredentials: true }
+                );
+    
+                localStorage.setItem("jwtToken", data.token);
+    
                 toast.success("Registration Successful!", {
                     position: "top-center",
                 });
+    
                 navigate(location?.state ? location.state : "/");
             }
         } catch (error) {
@@ -110,6 +120,7 @@ const Register = () => {
             });
         }
     };
+    
 
     if (user || loading) return null;
 
