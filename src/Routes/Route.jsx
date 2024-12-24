@@ -10,6 +10,7 @@ import MyApply from "../Pages/MyApply/MyApply";
 import PrivateRoute from "./PrivateRoute";
 import MarathonDetails from "../Pages/MarathonDetails/MarathonDetails";
 import ErrorPage from "../Pages/Error/ErrorPage";
+import RegisterForm from "../Pages/RegisterForm/RegisterForm";
 
 const router = createBrowserRouter([
     {
@@ -30,6 +31,12 @@ const router = createBrowserRouter([
                 element: <PrivateRoute><MarathonDetails></MarathonDetails></PrivateRoute>,
                 loader: ({ params }) => fetch(`${import.meta.env.VITE_API_URL}/marathon/${params.id}`, { credentials: 'include' })
             },
+            {
+                path: '/register-marathon/:id',
+                element: <PrivateRoute><RegisterForm></RegisterForm></PrivateRoute>,
+                loader: ({ params }) => fetch(`${import.meta.env.VITE_API_URL}/marathon/${params.id}`, { credentials: 'include' })
+            },
+            
             {
                 path: '/marathons',
                 element: <PrivateRoute><Marathons></Marathons></PrivateRoute>,

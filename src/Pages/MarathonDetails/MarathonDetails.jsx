@@ -34,6 +34,7 @@ const MarathonDetails = () => {
             setLoading(false);  
         }
     };
+    
 
     const checkRegistrationStatus = (data) => {
         const currentTime = Date.now(); 
@@ -53,11 +54,13 @@ const MarathonDetails = () => {
         }
     }, [marathon]);
 
+
     const handleRegisterClick = () => {
         if (isRegistrationOpen) {
-            navigate(`/register-marathon/${marathonDetails._id}`);  
+            navigate(`/register-marathon/${marathonDetails._id}`);  // Pass the marathon ID in the URL
         }
     };
+    
 
     const renderTime = ({ remainingTime }) => {
         if (remainingTime <= 0) {
@@ -129,9 +132,10 @@ const MarathonDetails = () => {
                                 </div>
                             </div>
 
-                            <Link to=''  disabled={!isRegistrationOpen} className={`btn w-full mt-4 py-2 px-4 ${isRegistrationOpen ? 'bg-[#228B22]  border-none hover:bg-[#1d771d] text-white' : 'bg-gray-500 text-gray-300'} rounded-lg`}>
+                            <Link to={`/register-marathon/${marathonDetails._id}`} disabled={!isRegistrationOpen} className={`btn w-full mt-4 py-2 px-4 ${isRegistrationOpen ? 'bg-[#228B22]  border-none hover:bg-[#1d771d] text-white' : 'bg-gray-500 text-gray-300'} rounded-lg`}>
                                 {isRegistrationOpen ? 'Register Now' : 'Registration Closed'}
                             </Link>
+
                         </div>
                     </div>
                 ) : (
