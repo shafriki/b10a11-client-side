@@ -14,21 +14,22 @@ const MyApply = () => {
     const [loading, setLoading] = useState(true);
     const [currentApplication, setCurrentApplication] = useState(null);
     const [updatedData, setUpdatedData] = useState({});
-  
+    const [searchTerm, setSearchTerm] = useState("");  // Added search term state
+
     useEffect(() => {
       document.title = "My Apply | প্রতিদৌড়";
     }, []);
-  
+
     useEffect(() => {
       if (user) {
         getApplications();
       }
-    }, [user]);
-  
+    }, [user, searchTerm]);  // Added searchTerm dependency
+
     const getApplications = async () => {
       try {
         const { data } = await axios.get(
-          `${import.meta.env.VITE_API_URL}/my-registration/${user?.email}`,
+          `${import.meta.env.VITE_API_URL}/my-registration/${user?.email}?title=${searchTerm}`,  // Pass search term as query parameter
           { withCredentials: true }
         );
         setApplications(data);
@@ -39,7 +40,11 @@ const MyApply = () => {
         toast.error("Error fetching applications. Please try again later.");
       }
     };
-  
+
+    const handleSearchChange = (e) => {
+      setSearchTerm(e.target.value);
+    };
+
     const handleDeleteApplication = async (id) => {
       try {
         const result = await Swal.fire({
@@ -51,7 +56,7 @@ const MyApply = () => {
           cancelButtonColor: "#d33",
           confirmButtonText: "Yes, delete it!",
         });
-  
+
         if (result.isConfirmed) {
           await axios.delete(`${import.meta.env.VITE_API_URL}/registration/${id}`, {
             withCredentials: true,
@@ -64,17 +69,17 @@ const MyApply = () => {
         toast.error("Error deleting application. Please try again later.");
       }
     };
-  
+
     const handleOpenModal = (application) => {
       setCurrentApplication(application);
       setUpdatedData(application);  
     };
-  
+
     const handleCloseModal = () => {
       setCurrentApplication(null);
       setUpdatedData({});  
     };
-  
+
     const handleInputChange = (e) => {
       const { name, value } = e.target;
       setUpdatedData((prevData) => ({
@@ -82,7 +87,7 @@ const MyApply = () => {
         [name]: value,  
       }));
     };
-  
+
     const handleUpdateApplication = async (e) => {
       e.preventDefault();
       try {
@@ -107,11 +112,17 @@ const MyApply = () => {
         toast.error("Error updating application. Please try again later.");
       }
     };
-  
+
     return (
       <div className="mb-10 px-4 sm:px-6 md:px-8">
         <h2 className="text-2xl sm:text-3xl md:text-4xl text-center mt-8 font-bold">My Application List</h2>
-  
+
+        {/* Search Bar */}
+        <div className="mt-4 text-center">
+          <input type="text" value={searchTerm} onChange={handleSearchChange}
+            placeholder="Search by Marathon Title" className="input input-bordered text-black  border rounded-lg bg-gray-300  dark:border-green-600 focus:border-blue-400 dark:focus:border-green-300 focus:ring-green-300 focus:outline-none focus:ring focus:ring-opacity-40"/>
+        </div>
+
         <div className="overflow-x-auto mt-5">
           {loading ? (
             <div className="absolute top-0 left-1/2 transform -translate-x-1/2 text-center my-4 md:my-6 z-50">
@@ -129,7 +140,7 @@ const MyApply = () => {
                   <th>Actions</th>
                 </tr>
               </thead>
-  
+
               <tbody>
                 {applications.length > 0 ? (
                   applications.map((application, index) => (
@@ -143,7 +154,7 @@ const MyApply = () => {
                         <label htmlFor="my_modal_7" className="btn text-xs sm:text-sm md:text-base bg-green-500 text-white cursor-pointer" onClick={() => handleOpenModal(application)}>
                           <MdEdit size={20} />Update
                         </label>
-  
+
                         <button onClick={() => handleDeleteApplication(application._id)} className="btn btn-error text-xs sm:text-sm md:text-base text-white">
                           <MdDelete size={20} />Delete
                         </button>
@@ -161,8 +172,8 @@ const MyApply = () => {
             </table>
           )}
         </div>
-  
-        {/* modal content */}
+
+        {/* Modal Content */}
         <input type="checkbox" id="my_modal_7" className="modal-toggle" checked={!!currentApplication} readOnly />
         <div className="modal" role="dialog">
           <div className="modal-box text-white bg-gradient-to-r from-[#1B1B1D] via-[#272730] to-[#6E2B4E] opacity-90 backdrop-blur-lg">
@@ -175,7 +186,7 @@ const MyApply = () => {
                   <label className="label">Application Title</label>
                   <input type="text" name="title" value={currentApplication.marathonTitle || ""} className="input input-bordered block w-full text-gray-700 bg-white border rounded-lg dark:bg-gray-900 dark:text-gray-300 dark:border-green-600 focus:border-blue-400 dark:focus:border-green-300 focus:ring-green-300 focus:outline-none focus:ring focus:ring-opacity-40" readOnly />
                 </div>
-  
+
                 {/* Location */}
                 <div className="form-control mb-4">
                   <label className="label">Location</label>
@@ -188,7 +199,7 @@ const MyApply = () => {
                     required 
                   />
                 </div>
-  
+
                 {/* First Name */}
                 <div className="form-control mb-4">
                   <label className="label">First Name</label>
@@ -201,7 +212,7 @@ const MyApply = () => {
                     required 
                   />
                 </div>
-  
+
                 {/* Last Name */}
                 <div className="form-control mb-4">
                   <label className="label">Last Name</label>
@@ -214,7 +225,7 @@ const MyApply = () => {
                     required 
                   />
                 </div>
-  
+
                 {/* Buttons */}
                 <div className="flex justify-end space-x-4 mt-4">
                   <button className="btn btn-success text-white px-5 md:px-10" type="submit">Update</button>
@@ -227,6 +238,6 @@ const MyApply = () => {
         </div>
       </div>
     );
-  };
-  
+};
+
 export default MyApply;
