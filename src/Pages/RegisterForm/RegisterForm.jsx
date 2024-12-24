@@ -18,6 +18,10 @@ const RegisterForm = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
+          document.title = "Marathon Register | প্রতিদৌড়";
+        }, []);
+
+    useEffect(() => {
         if (!user) {
             navigate('/login');
             return;
@@ -73,7 +77,7 @@ const RegisterForm = () => {
                 text: 'You have successfully registered for the marathon.',
                 confirmButtonText: 'OK'
             }).then(() => {
-                navigate('/');
+                navigate('/my-apply');
             });
         } catch (error) {
             console.error('Error registering:', error);

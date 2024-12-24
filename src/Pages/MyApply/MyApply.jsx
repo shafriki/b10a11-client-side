@@ -133,7 +133,7 @@ const MyApply = () => {
               <thead>
                 <tr className="font-bold text-black text-xs sm:text-sm md:text-lg">
                   <th>Index No.</th>
-                  <th>Application Title</th>
+                  <th>Marathon Title</th>
                   <th>First Name</th>
                   <th>Last Name</th>
                   <th>Location</th>
@@ -183,7 +183,7 @@ const MyApply = () => {
 
                 {/* title */}
                 <div className="form-control mb-4">
-                  <label className="label">Application Title</label>
+                  <label className="label">Marathon Title</label>
                   <input type="text" name="title" value={currentApplication.marathonTitle || ""} className="input input-bordered block w-full text-gray-700 bg-white border rounded-lg dark:bg-gray-900 dark:text-gray-300 dark:border-green-600 focus:border-blue-400 dark:focus:border-green-300 focus:ring-green-300 focus:outline-none focus:ring focus:ring-opacity-40" readOnly />
                 </div>
 
