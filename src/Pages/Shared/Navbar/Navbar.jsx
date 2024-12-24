@@ -15,11 +15,16 @@ const Navbar = () => {
 
         <NavLink to='/marathons' className={({ isActive }) => isActive ? 'font-bold text-[#228B22]' : 'text-[#ECF0F1]' }>Marathons</NavLink>
 
-        <NavLink to='/add-marathons' className={({ isActive }) => isActive ? 'font-bold text-[#228B22]' : 'text-[#ECF0F1]' }>Add Marathons</NavLink>
+        {
+            user&&
+            <>
+            <NavLink to='/add-marathons' className={({ isActive }) => isActive ? 'font-bold text-[#228B22]' : 'text-[#ECF0F1]' }>Add Marathons</NavLink>
 
-        <NavLink to='/my-marathons' className={({ isActive }) => isActive ? 'font-bold text-[#228B22]' : 'text-[#ECF0F1]' }>My Marathons</NavLink>
-        
-        <NavLink to='/my-apply' className={({ isActive }) => isActive ? 'font-bold text-[#228B22]' : 'text-[#ECF0F1]' }>My Apply</NavLink>
+            <NavLink to='/my-marathons' className={({ isActive }) => isActive ? 'font-bold text-[#228B22]' : 'text-[#ECF0F1]' }>My Marathons</NavLink>
+
+            <NavLink to='/my-apply' className={({ isActive }) => isActive ? 'font-bold text-[#228B22]' : 'text-[#ECF0F1]' }>My Apply</NavLink>
+            </>
+        }
         </>
     );
 
