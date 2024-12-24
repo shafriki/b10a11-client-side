@@ -43,14 +43,14 @@ const UpcomingMarathons = () => {
                         <div className="py-6 px-3">
                             <h2 className="font-bold text-sm md:text-base mb-2 text-gray-800">{marathon.title}</h2>
 
-                            <p className="text-gray-600 mb-1 text-xs md:text-sm">
+                            <p className="text-gray-600 mb-2 text-xs md:text-sm">
                                 <strong>
                                 </strong> {marathon.description}
                             </p>
 
                             <p className="text-gray-600 mb-1 text-xs md:text-sm">
                                 <strong><BsFillCalendar2DateFill className='inline-block text-[#6E2B4E] mr-1'/>
-                                </strong> {new Date(marathon.startDate).toLocaleDateString()}
+                                </strong>Start Date: {new Date(marathon.startDate).toLocaleDateString()}
                             </p>
 
                             <p className="text-gray-600 mb-1 text-xs md:text-sm">
