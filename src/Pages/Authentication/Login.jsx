@@ -56,7 +56,7 @@ const Login = () => {
         { email },
         { withCredentials: true }
       );
-      console.log(data);
+      // console.log(data);
 
       toast.success("Login successful!", {
         position: "top-center",
@@ -66,7 +66,7 @@ const Login = () => {
       // Navigate to the previous page or home page after login
       setTimeout(() => navigate(from, { replace: true }), 1000);
     } catch (error) {
-      console.error("Login failed:", error.message);
+      // console.error("Login failed:", error.message);
       toast.error("Login failed. Please check your email or password.", {
         position: "top-center",
         autoClose: 5000,
@@ -84,7 +84,7 @@ const Login = () => {
         { email: result?.user?.email },
         { withCredentials: true }
       );
-      console.log(data);
+      // console.log(data);
 
       toast.success("Logged in with Google!", {
         position: "top-center",
@@ -94,7 +94,7 @@ const Login = () => {
       // Navigate to the previous page or home page after Google login
       setTimeout(() => navigate(from, { replace: true }), 1500);
     } catch (error) {
-      console.error("Google login failed:", error.message);
+      // console.error("Google login failed:", error.message);
       toast.error("Google login failed. Please try again.", {
         position: "top-center",
         autoClose: 5000,

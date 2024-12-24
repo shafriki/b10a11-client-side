@@ -39,7 +39,7 @@ const RegisterForm = () => {
                 setMarathonDetails(data);
                 setLoading(false);
             } catch (error) {
-                console.error('Error fetching marathon details:', error);
+                // console.error('Error fetching marathon details:', error);
                 setLoading(false);
             }
         };
@@ -80,7 +80,7 @@ const RegisterForm = () => {
                 navigate('/my-apply');
             });
         } catch (error) {
-            console.error('Error registering:', error);
+            // console.error('Error registering:', error);
         }
     };
 

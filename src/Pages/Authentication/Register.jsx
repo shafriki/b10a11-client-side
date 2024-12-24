@@ -55,7 +55,7 @@ const Register = () => {
 
             navigate(location?.state ? location.state : "/");
         } catch (error) {
-            console.error(error);
+            // console.error(error);
             toast.error("Registration Failed!", {
                 position: "top-center",
             });
@@ -114,7 +114,7 @@ const Register = () => {
                 navigate(location?.state ? location.state : "/");
             }
         } catch (error) {
-            console.error(error);
+            // console.error(error);
             toast.error("Registration Failed!", {
                 position: "top-center",
             });

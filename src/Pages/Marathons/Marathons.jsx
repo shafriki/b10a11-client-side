@@ -21,7 +21,7 @@ const Marathons = () => {
       setMarathons(data);
       setLoading(false);
     } catch (error) {
-      console.error("Error fetching marathons:", error);
+      // console.error("Error fetching marathons:", error);
       setLoading(false);
       toast.error("Error fetching marathons. Please try again later.");
     }

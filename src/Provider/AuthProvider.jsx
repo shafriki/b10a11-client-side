@@ -32,7 +32,7 @@ const AuthProvider = ({ children }) => {
         return currentUser;
       })
       .catch((error) => {
-        console.error("Registration Error:", error.message);
+        // console.error("Registration Error:", error.message);
         throw error;
       })
       .finally(() => setLoading(false));
@@ -47,7 +47,7 @@ const AuthProvider = ({ children }) => {
         return userCredential.user;
       })
       .catch((error) => {
-        console.error("Login Error:", error.message);
+        // console.error("Login Error:", error.message);
         throw error;
       })
       .finally(() => setLoading(false));
@@ -62,7 +62,7 @@ const AuthProvider = ({ children }) => {
         document.cookie = "token=; max-age=0"; // Clear JWT token cookie
       })
       .catch((error) => {
-        console.error("Sign-Out Error:", error.message);
+        // console.error("Sign-Out Error:", error.message);
       })
       .finally(() => setLoading(false));
   };
@@ -76,7 +76,7 @@ const AuthProvider = ({ children }) => {
       if (!currentUser) {
         axios.post(`${import.meta.env.VITE_API_URL}/logout`, {}, { withCredentials: true })
           .then((res) => {
-            console.log(res.data);
+            // console.log(res.data);
           });
       }
     });

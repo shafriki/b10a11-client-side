@@ -35,7 +35,7 @@ const MyApply = () => {
         setApplications(data);
         setLoading(false);
       } catch (error) {
-        console.error("Error fetching applications:", error);
+        // console.error("Error fetching applications:", error);
         setLoading(false);
         toast.error("Error fetching applications. Please try again later.");
       }
@@ -65,7 +65,7 @@ const MyApply = () => {
           getApplications();
         }
       } catch (err) {
-        console.error("Error deleting application:", err.message);
+        // console.error("Error deleting application:", err.message);
         toast.error("Error deleting application. Please try again later.");
       }
     };
@@ -108,7 +108,7 @@ const MyApply = () => {
         handleCloseModal();
         getApplications(); 
       } catch (error) {
-        console.error("Error updating application:", error);
+        // console.error("Error updating application:", error);
         toast.error("Error updating application. Please try again later.");
       }
     };

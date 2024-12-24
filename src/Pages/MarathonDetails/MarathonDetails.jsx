@@ -30,7 +30,7 @@ const MarathonDetails = () => {
             checkRegistrationStatus(data);
             setLoading(false); 
         } catch (error) {
-            console.error('Error fetching marathon details:', error);
+            // console.error('Error fetching marathon details:', error);
             setLoading(false);  
         }
     };

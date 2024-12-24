@@ -34,7 +34,7 @@ const MyMarathons = () => {
       setMarathons(data);
       setLoading(false);
     } catch (error) {
-      console.error("Error fetching marathons:", error);
+      // console.error("Error fetching marathons:", error);
       setLoading(false);
       toast.error("Error fetching marathons. Please try again later.");
     }
@@ -60,7 +60,7 @@ const MyMarathons = () => {
         getMarathons();
       }
     } catch (err) {
-      console.error("Error deleting marathon:", err.message);
+      // console.error("Error deleting marathon:", err.message);
       toast.error("Error deleting marathon. Please try again later.");
     }
   };
@@ -85,7 +85,7 @@ const MyMarathons = () => {
 
   const handleUpdateMarathon = async (e) => {
     e.preventDefault();
-    console.log('Submitting updated data:', updatedData); 
+    // console.log('Submitting updated data:', updatedData); 
     try {
       const response = await axios.put(
         `${import.meta.env.VITE_API_URL}/marathon/${currentMarathon._id}`,
@@ -104,7 +104,7 @@ const MyMarathons = () => {
       handleCloseModal();
       getMarathons(); 
     } catch (error) {
-      console.error("Error updating marathon:", error);
+      // console.error("Error updating marathon:", error);
       toast.error("Error updating marathon. Please try again later.");
     }
   };

@@ -22,9 +22,9 @@ const Navbar = () => {
 
     const handleSignOut = () => {
         logOut().then(result => {
-            console.log('Logged out:', result);
+            // console.log('Logged out:', result);
         }).catch(err => {
-            console.error('Logout error:', err);
+            // console.error('Logout error:', err);
         });
     };
 
