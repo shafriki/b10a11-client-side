@@ -9,6 +9,7 @@ import { FaWhatsapp } from "react-icons/fa";
 import { SiOpenstreetmap } from "react-icons/si";
 import { SiGooglemaps } from "react-icons/si";
 import logo from '../../../assets/protidour.png';
+import { Link } from 'react-router-dom';
 
 
 
@@ -45,11 +46,11 @@ const Footer = () => {
 
                 {/* navlink section */}
                 <nav>
-                    <h6 className="footer-title">Company</h6>
-                    <a className="link link-hover">About us</a>
-                    <a className="link link-hover">Contact</a>
-                    <a className="link link-hover">Jobs</a>
-                    <a className="link link-hover">Press kit</a>
+                    <h6 className="footer-title">প্রতিদৌড়</h6>
+                    <Link to='/marathons' className="link link-hover">Marathons</Link>
+                    <Link to='add-marathons' className="link link-hover">Add Marathons</Link>
+                    <Link to='my-marathons' className="link link-hover">My Marathons</Link>
+                    <Link to='/my-apply' className="link link-hover">My Apply</Link>
                 </nav>
 
                 {/* legal condition section */}
