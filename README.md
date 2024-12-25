@@ -1,4 +1,4 @@
-# Project Name: ProtiDour [Live Link]()
+# Project Name: ProtiDour [Live Link](https://protidour.web.app/home)
 
 ## Short Description of ProtiDour
 **ProtiDour** is an innovative Marathon Management System designed to streamline marathon event organization and participation. It allows users to create, update, and delete marathon events, explore detailed event listings, and manage their applications effortlessly. With features like secure login, real-time data management, and personalized dashboards, ProtiDour simplifies event coordination for organizers and participants. Built with modern technologies like React, Firebase, MongoDB, Tailwind CSS, and JWT, it ensures a secure and user-friendly experience, making marathon management efficient and accessible.
@@ -59,5 +59,9 @@ During the development of **ProtiDour**, I faced several challenges as it was my
 
 
 
-## Live Link
-[Click here to view live project]()
+### Video Walkthrough
+[![Watch the video](https://img.youtube.com/vi/pzFnB1zGSDg/0.jpg)](https://youtu.be/pzFnB1zGSDg)
+
+
+
+
