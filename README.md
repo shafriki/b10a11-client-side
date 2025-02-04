@@ -57,6 +57,13 @@ During the development of **ProtiDour**, I faced several challenges as it was my
 
 7. **Registration:** Users can register and perticipate an event.
 
+## Installation
+- Ensure you have Node.js, npm or yarn, and Git installed.
+- Clone the repository: git clone https://github.com/shafriki/b10a11-client-side.git
+- cd b10a11-client-side file
+- Install dependencies: npm install
+- Set up frontend environment variables (Firebase config): Create a .env file 
+- Run the frontend: npm run dev
 
 
 ### Video Walkthrough
