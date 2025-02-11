@@ -4,7 +4,7 @@ import Lottie from "lottie-react";
 
 const FindUs = () => {
   return (
-    <div className="relative bg-black">
+    <div className="relative bg-fixed bg-black">
 
       <img src="https://i.ibb.co.com/hdf8ypj/pexels-joao-godoy-706154396-24308068.jpg" 
         className="absolute inset-0 w-full h-full object-cover opacity-25"/>
