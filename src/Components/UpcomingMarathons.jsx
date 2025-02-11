@@ -34,11 +34,11 @@ const UpcomingMarathons = () => {
                 {randomMarathons.map((marathon) => (
                     <div 
                         key={marathon.id} 
-                        className="w-full border-y-8 bg-gray-50 rounded-xl border-[#228B22] shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden"
+                        className="w-full border-y-8 cursor-pointer group bg-gray-50 rounded-xl border-[#228B22] shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden"
                         data-aos="fade-up" 
                     >
                         <img src={marathon.image} alt={marathon.title} 
-                        className="w-full h-48 object-cover" />
+                        className="w-full h-48 object-cover group-hover:scale-110 transition" />
 
                         <div className="py-6 px-3">
                             <h2 className="font-bold text-sm md:text-base mb-2 text-gray-800">{marathon.title}</h2>
