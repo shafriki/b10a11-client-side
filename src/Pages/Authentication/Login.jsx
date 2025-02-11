@@ -103,7 +103,7 @@ const Login = () => {
   };
 
   return (
-    <div className="relative min-h-screen bg-cover bg-center overflow-auto"
+    <div className="relative bg-fixed  min-h-screen bg-cover bg-center overflow-auto"
       style={{ backgroundImage: "url('https://i.ibb.co.com/NjVGTZ0/18773518-6031991.jpg')" }}>
 
       <div className="absolute inset-0 bg-black bg-opacity-70 z-0"></div>
