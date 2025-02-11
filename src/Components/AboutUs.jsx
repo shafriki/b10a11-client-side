@@ -7,20 +7,20 @@ const AboutUs = () => {
     <div className="flex flex-col lg:flex-row justify-between gap-10 max-w-screen-xl md:mx-auto items-center p-6  lg:p-12 bg-gray-100 mx-3 my-32">
 
       {/* img content */}
-      <div className="w-full lg:w-2/5">
+      <div className="w-full lg:w-2/5 cursor-pointer group">
         <Fade cascade damping={0.1}>
           <h2 className="text-base md:text-2xl font-bold text-[#228B22] mb-6">
             Let’s Talk About ProtiDour Journey
           </h2>
 
           <div className="grid grid-cols-2 gap-1 md:gap-4">
-            <img src="https://i.ibb.co.com/hg1XtZ0/a-1.webp" className="w-full h-32 md:h-48 object-cover rounded-lg"/>
+            <img src="https://i.ibb.co.com/hg1XtZ0/a-1.webp" className="w-full h-32 md:h-48 object-cover group-hover:scale-110 transition"/>
             
-            <img src="https://i.ibb.co.com/556qsrW/a-2.webp" className="w-full h-32 md:h-48 object-cover rounded-lg" />
+            <img src="https://i.ibb.co.com/556qsrW/a-2.webp" className="w-full h-32 md:h-48 object-cover group-hover:scale-110 transition" />
 
-            <img src="https://i.ibb.co.com/D45pbqm/a4.webp" className="w-full h-32 md:h-48 object-cover rounded-lg" />
+            <img src="https://i.ibb.co.com/D45pbqm/a4.webp" className="w-full h-32 md:h-48 object-cover group-hover:scale-110 transition" />
             
-            <img src="https://i.ibb.co.com/gDkFNcn/a-4.webp" className="w-full h-32 md:h-48 object-cover rounded-lg" />
+            <img src="https://i.ibb.co.com/gDkFNcn/a-4.webp" className="w-full h-32 md:h-48 object-cover group-hover:scale-110 transition" />
           </div>
         </Fade>
       </div>
