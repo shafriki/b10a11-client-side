@@ -126,7 +126,7 @@ const Register = () => {
 
     return (
         <div
-            className="relative min-h-screen bg-cover bg-center overflow-auto"
+            className="relative bg-fixed min-h-screen bg-cover bg-center overflow-auto"
             style={{
                 backgroundImage:
                     "url('https://i.ibb.co.com/WPpSmBw/9508803-26807.jpg')",
