@@ -89,7 +89,7 @@ const RegisterForm = () => {
     }
 
     return (
-        <div className="py-7 bg-cover bg-center relative" style={{ backgroundImage: "url('https://i.ibb.co.com/PmgcBDK/ai-generated-8011395-1920.jpg')" }}>
+        <div className="py-7 bg-cover bg-fixed bg-center relative" style={{ backgroundImage: "url('https://i.ibb.co.com/PmgcBDK/ai-generated-8011395-1920.jpg')" }}>
             <div className="absolute inset-0 bg-black opacity-70 z-0"></div>
             <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-center gap-16 relative z-10 px-4">
                 <div className="flex-1 text-white p-5">
